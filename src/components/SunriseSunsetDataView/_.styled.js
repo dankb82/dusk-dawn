@@ -14,5 +14,6 @@ export const StyledHeader = styled.h2`
 `;
 
 export const StyledImage = styled.img`
-  max-width: 300px;
+  max-width: 350px;
+  max-height: 200px;
 `;

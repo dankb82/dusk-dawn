@@ -65,6 +65,7 @@ function LatitudeLongitudeForm() {
       setValues(initialValues);
     }
   };
+  console.log(`data passed in: ${JSON.stringify(timeData)}`);
   return (
     <div>
       <StyledForm onSubmit={handleSubmit}>
