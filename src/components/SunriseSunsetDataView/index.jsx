@@ -1,7 +1,6 @@
 import { StyledImageWrapper, StyledHeader, StyledImage } from './_.styled';
 
 function SunriseSunsetDataView({ timeData }) {
-  console.log(`data: ${JSON.stringify(timeData)}`);
   return (
     <div>
       <StyledHeader data-testid="data-container-header">
@@ -17,11 +16,8 @@ function SunriseSunsetDataView({ timeData }) {
       {timeData.length === 5 && (
         <section data-testid="results-container">
           <ul data-testid="results-list">
-            {timeData?.map(info => (
-              <li
-                key={info.latitude + `-` + info.longitude}
-                data-testid="result-item"
-              >
+            {timeData?.map((info, index) => (
+              <li key={index} data-testid="result-item">
                 <label>{info.latitude + `/` + info.longitude}</label>:{' '}
                 <span>
                   Sunrise: {info.sunrise} Sunset: {info.sunset}

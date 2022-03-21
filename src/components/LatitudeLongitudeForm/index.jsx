@@ -65,10 +65,9 @@ function LatitudeLongitudeForm() {
       setValues(initialValues);
     }
   };
-  console.log(`data passed in: ${JSON.stringify(timeData)}`);
   return (
     <div>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit} data-testid="lat-long-form">
         <div>
           <StyledInput
             aria-label="latitude input"
@@ -77,6 +76,7 @@ function LatitudeLongitudeForm() {
             value={values.latitude}
             onChange={handleChange}
             placeholder="Latitude"
+            data-testid="latitude-input-field"
           />
           <StyledInput
             aria-label="latitude input"
@@ -85,6 +85,7 @@ function LatitudeLongitudeForm() {
             value={values.longitude}
             onChange={handleChange}
             placeholder="Longitude"
+            data-testid="longitude-input-field"
           />
           {timeData.length < 5 ? (
             <StyledLocationButton
@@ -94,6 +95,7 @@ function LatitudeLongitudeForm() {
               disabled={
                 !values.latitude || !values.longitude || timeData.length >= 5
               }
+              data-testid="lat-long-submit-button"
             >
               Add Location
             </StyledLocationButton>
@@ -102,6 +104,7 @@ function LatitudeLongitudeForm() {
               aria-label="reset locations"
               type="submit"
               name="reset"
+              data-testid="full-reset-button"
             >
               Reset
             </StyledResetButton>
