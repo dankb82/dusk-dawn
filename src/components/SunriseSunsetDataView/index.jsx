@@ -1,13 +1,13 @@
-import { StyledImageWrapper, StyledHeader } from './_.styled';
+import { StyledImageWrapper, StyledHeader, StyledImage } from './_.styled';
 
 function SunriseSunsetDataView({ timeData }) {
   return (
     <div>
       <StyledHeader>Sunrise and Sunset</StyledHeader>
       <StyledImageWrapper>
-        <img src="img/dusk-dawn.jpg" alt="Sunrise/Sunset" />
+        <StyledImage src="img/retro-sun.jpg" alt="Sunrise/Sunset" />
       </StyledImageWrapper>
-      {timeData.length > 0 && (
+      {timeData.length === 5 && (
         <section>
           <ul>
             {timeData?.map(info => (

@@ -12,3 +12,7 @@ export const StyledHeader = styled.h2`
   text-align: center;
   margin-top: 0.3em;
 `;
+
+export const StyledImage = styled.img`
+  max-width: 300px;
+`;

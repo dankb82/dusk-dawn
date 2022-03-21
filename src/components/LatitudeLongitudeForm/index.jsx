@@ -3,7 +3,8 @@ import SunriseSunsetDataView from '../SunriseSunsetDataView';
 import {
   StyledForm,
   StyledInput,
-  StyledButton,
+  StyledLocationButton,
+  StyledResetButton,
   StyledDataViewWrapper,
 } from './_.styled';
 
@@ -35,7 +36,6 @@ function LatitudeLongitudeForm() {
           },
         ]);
       } catch (error) {
-        console.log(`We have and error: ${error}`);
         return {};
       }
     };
@@ -49,13 +49,21 @@ function LatitudeLongitudeForm() {
       ...values,
       [e.target.name]: value,
     });
+  };
 
-    console.log(`test new format: ${JSON.stringify(values)}`);
+  const reset = () => {
+    setTimeData([]);
+    setLatAndLong({});
+    setValues(initialValues);
   };
   const handleSubmit = e => {
     e.preventDefault();
-    setLatAndLong({ ...values });
-    setValues(initialValues);
+    if (e.target[2].name === 'reset') {
+      reset();
+    } else {
+      setLatAndLong({ ...values });
+      setValues(initialValues);
+    }
   };
   return (
     <div>
@@ -77,13 +85,26 @@ function LatitudeLongitudeForm() {
             onChange={handleChange}
             placeholder="Longitude"
           />
-          <StyledButton
-            aria-label="submit latitude and longitude"
-            type="submit"
-            disabled={!values.latitude || !values.longitude}
-          >
-            Submit
-          </StyledButton>
+          {timeData.length < 5 ? (
+            <StyledLocationButton
+              aria-label="submit latitude and longitude"
+              type="submit"
+              name="submit"
+              disabled={
+                !values.latitude || !values.longitude || timeData.length >= 5
+              }
+            >
+              Add Location
+            </StyledLocationButton>
+          ) : (
+            <StyledResetButton
+              aria-label="reset locations"
+              type="submit"
+              name="reset"
+            >
+              Reset
+            </StyledResetButton>
+          )}
         </div>
       </StyledForm>
       <StyledDataViewWrapper>

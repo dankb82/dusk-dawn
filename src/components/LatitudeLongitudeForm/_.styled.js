@@ -20,7 +20,39 @@ export const StyledInput = styled.input`
   background-color: #eee;
 `;
 
-export const StyledButton = styled.button`
+export const StyledLocationButton = styled.button`
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid #ff0000;
+  background-color: #cc0000;
+  cursor: pointer;
+  padding: 8px 10px;
+  color: #eee;
+  border-radius: 3px;
+
+  &:hover:not(:disabled) {
+    border-color: #cc0000;
+    background-color: #8a0000;
+  }
+
+  &:active:not(:disabled) {
+    border-color: #cc0000;
+    background-color: #8a0000;
+  }
+
+  &:active:not(:disabled) {
+    border-color: #cc0000;
+    background-color: #8a0000;
+  }
+
+  &:disabled {
+    border-color: #dc9494;
+    background-color: #f16161;
+    cursor: unset;
+  }
+`;
+
+export const StyledResetButton = styled.button`
   font-size: 1rem;
   font-family: inherit;
   border: 1px solid #ff0000;
